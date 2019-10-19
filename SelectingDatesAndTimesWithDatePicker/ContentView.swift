@@ -9,8 +9,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var wakeUp = Date()
     var body: some View {
-        Text("Hello World")
+        
+//        let now = Date()
+//        let tomorrow = Date().addingTimeInterval(86400)
+//        let range = now ... tomorrow
+        
+        VStack {
+            
+            Form {
+                DatePicker("Please enter a date", selection: $wakeUp)
+                    .padding()
+            }
+            DatePicker("Please enter a date", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                .labelsHidden()
+            
+            DatePicker("Please enter a date", selection: $wakeUp)
+                .labelsHidden()
+        }
     }
 }
 
